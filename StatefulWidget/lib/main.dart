@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './question.dart'; //everything that's in question.dart file is now available in this file
 
 void main(){
   runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatefulWidget {
   State<StatefulWidget> createState() {
     // TODO: implement createState
    
-    return MyAppState();
+    return _MyAppState();
 
      // throw UnimplementedError();
   }
@@ -19,7 +20,8 @@ class MyApp extends StatefulWidget {
 //here create a class with widget name ending with State
 //here this state will be persistent
 //State<MyApp> tells state belongs to MyApp
-class MyAppState extends State<MyApp> {
+//we use _ to make it as private property
+class _MyAppState extends State<MyApp> {
 var indexQuestion = 0;
 
   @override 
@@ -41,7 +43,8 @@ var indexQuestion = 0;
       appBar: AppBar(title: Text('My First App'),
       ),
       body: Column(children: [
-        Text(questions[indexQuestion],
+        Question(
+          questions[indexQuestion],
         ),
         RaisedButton(
           onPressed: answerQuestion, 
