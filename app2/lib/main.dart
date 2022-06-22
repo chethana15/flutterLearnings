@@ -7,9 +7,7 @@ void main(){
 //functions inside class are known as methods
 class MyApp extends StatelessWidget {
 
-void answerQuestion(){
-  print('answer chosen');
-}
+
   @override 
   Widget build(BuildContext context){
     var questions = [
@@ -24,13 +22,13 @@ void answerQuestion(){
       body: Column(children: [
         Text('The question!'),
         RaisedButton(
-          onPressed: answerQuestion, child: Text('Answer 1'),
+          onPressed: () => print('You tapped answe 1 !!'), child: Text('Answer 1'),
           ),
         RaisedButton(
-          onPressed: answerQuestion, child: Text('Answer 2'),
+          onPressed: () => print('You tapped answe 2 !!'), child: Text('Answer 2'),
           ),
         RaisedButton(
-          onPressed:  answerQuestion, child: Text('Answer 3'),
+          onPressed:  () => print('You tapped answe 3 !!'), child: Text('Answer 3'),
           ),
       ],
       ),
