@@ -15,7 +15,7 @@ Question(this.questionText);
       child: Text(
         questionText,
         
-        style: TextStyle(fontSize: 20, color: Color.fromARGB(240, 183, 107, 74) ),
+        style: TextStyle(fontSize: 20, color: Color.fromARGB(239, 8, 8, 8) ),
         textAlign: TextAlign.center,
     ), 
     );

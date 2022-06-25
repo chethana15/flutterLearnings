@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './question.dart'; //everything that's in question.dart file is now available in this file
+import './answer.dart';
 
 void main(){
   runApp(MyApp());
@@ -26,7 +27,7 @@ var indexQuestion = 0;
 
   @override 
   Widget build(BuildContext context){
-    void answerQuestion(){
+    void _answerQuestion(){
       setState(() {
         indexQuestion = indexQuestion + 1;
       });
@@ -34,9 +35,18 @@ var indexQuestion = 0;
        print(indexQuestion);
     }
     var questions = [
-      'What\'s your favourite color?', 
-      'City you would love to visit?', 
-      'Language you would love to learn?'
+      {
+        'questionText':'What\'s your favourite color?',
+        'answers': ['Red', 'Black', 'Pink', 'Purple'],
+      },
+      {
+        'questionText':'City you would love to visit?',
+        'answers': ['Delhi', 'Chennai', 'Gandhi Nagar', 'Hyderabad'],
+      },
+      {
+        'questionText':'Language you would love to learn?',
+        'answers': ['Dart', 'HTML', 'JavaScript', 'Objective C'],
+      },
       ];
 
     return MaterialApp(home: Scaffold(
@@ -44,22 +54,12 @@ var indexQuestion = 0;
       ),
       body: Column(children: [
         Question(
-          questions[indexQuestion],
-
+          questions[indexQuestion]['questionText'] as String,
+            
         ),
-        RaisedButton(
-          onPressed: answerQuestion, 
-          child: Text('Answer 1'),
-          ),
-        RaisedButton(
-          onPressed: () => print('You tapped answe 2 !!'), 
-          child: Text('Answer 2'),
-          ),
-        RaisedButton(
-          onPressed:  () {
-            print('You tapped answe 3 !!');
-            } , child: Text('Answer 3'),
-          ),
+          ...(questions[indexQuestion]['answers'] as List<String>).map((
+            return Answer(_answerQuestion, answer);
+  }).toList()
       ],
       ),
     ),
